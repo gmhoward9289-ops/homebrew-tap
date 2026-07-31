@@ -1,0 +1,30 @@
+# Homebrew formula for roost. The master copy lives in the roost repo at
+# packaging/roost.rb and is copied here on release; edit it there, not here.
+#
+# After tagging a release, refresh the checksum with:
+#   curl -sL https://github.com/gmhoward9289-ops/roost/archive/refs/tags/v0.2.tar.gz | shasum -a 256
+class Roost < Formula
+  desc "top for Claude Code: live sessions, context use, and their subagents"
+  homepage "https://github.com/gmhoward9289-ops/roost"
+  url "https://github.com/gmhoward9289-ops/roost/archive/refs/tags/v0.2.tar.gz"
+  sha256 "d7c5c1fec7438a25c4c412ebf716c0e40a70513dcd3bc330cdb3df6c25592402"
+  license "MIT"
+
+  depends_on "python@3.13"
+
+  def install
+    bin.install "roost.py" => "roost"
+    # The shipped shebang is `/usr/bin/env python3`, which would resolve to
+    # whatever python happens to be first on PATH -- including a virtualenv the
+    # user activated for something else. Pin it to the formula's interpreter.
+    rewrite_shebang detected_python_shebang(use_python_from_path: false), bin/"roost"
+    man1.install "roost.1"
+  end
+
+  test do
+    assert_match "roost #{version}", shell_output("#{bin}/roost --version")
+    # -1 renders a frame and exits; with no Claude Code sessions present it
+    # still has to produce the empty-state line rather than fail.
+    assert_match(/roost|session/i, shell_output("#{bin}/roost -1 --no-color"))
+  end
+end
