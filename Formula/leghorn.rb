@@ -9,14 +9,14 @@
 # (stars/forks/watchers) that this project has not met.
 #
 # After tagging a release, refresh the checksum with:
-#   curl -sL https://github.com/gmhoward9289-ops/leghorn/archive/refs/tags/v0.1.tar.gz | shasum -a 256
+#   curl -sL https://github.com/gmhoward9289-ops/leghorn/archive/refs/tags/v0.2.tar.gz | shasum -a 256
 class Leghorn < Formula
   include Language::Python::Shebang
 
   desc "Live dashboard for Claude Code sessions, git state, and GitHub CI"
   homepage "https://github.com/gmhoward9289-ops/leghorn"
-  url "https://github.com/gmhoward9289-ops/leghorn/archive/refs/tags/v0.1.tar.gz"
-  sha256 "b5a1ca36adbeaf56eed21124cd89a5e06df533f8972a1cea79a1aa0ed7e3f521"
+  url "https://github.com/gmhoward9289-ops/leghorn/archive/refs/tags/v0.2.tar.gz"
+  sha256 "5fadd973cea1cbb34069c558bb7c0eb3b9287748f6a0b56209459b5e36f7b271"
   license "MIT"
 
   depends_on "python@3.13"
