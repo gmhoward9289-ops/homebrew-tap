@@ -1,15 +1,31 @@
-# Homebrew formula for roost. The master copy lives in the roost repo at
-# packaging/roost.rb and is copied here on release; edit it there, not here.
+# Homebrew formula for roost.
+#
+# This is the master copy; the homebrew-tap job in release.yml copies it to
+# Formula/roost.rb in the tap repo (gmhoward9289-ops/homebrew-tap) on every
+# tagged release, computing a fresh sha256 for that tag's tarball as it goes --
+# so the url/sha256 below are last-release documentation, not what ships. It
+# lives here so the formula is versioned alongside the code it builds.
+#
+# homebrew-core is not an option yet -- it requires notability thresholds
+# (stars/forks/watchers) that this project has not met.
+#
+# The url points at the sdist tarball uploaded to the GitHub Release, not
+# GitHub's auto-generated archive/refs/tags/ URL. That URL isn't a release
+# asset at all, so GitHub doesn't count `brew install` downloads in the repo's
+# release download_count the way it does for the .deb/.whl assets -- roost's
+# Homebrew distribution was invisible to any download tracking until this
+# changed.
 #
 # After tagging a release, refresh the checksum with:
-#   curl -sL https://github.com/gmhoward9289-ops/roost/archive/refs/tags/v0.4.tar.gz | shasum -a 256
+#   curl -sL https://github.com/gmhoward9289-ops/roost/releases/download/v0.5.0/roost_top-0.5.0.tar.gz | shasum -a 256   # x-release-please-version
 class Roost < Formula
   include Language::Python::Shebang
 
   desc "top for Claude Code: live sessions, context use, and their subagents"
   homepage "https://github.com/gmhoward9289-ops/roost"
-  url "https://github.com/gmhoward9289-ops/roost/archive/refs/tags/v0.4.tar.gz"
-  sha256 "87f1c68bc6d1b3c383ebec53e8e4a8d9ad197fd54b1a29abe70e2942dd625dda"
+  url "https://github.com/gmhoward9289-ops/roost/releases/download/v0.5.0/roost_top-0.5.0.tar.gz" # x-release-please-version
+  sha256 "84ccb8f59d96dc7cc9123382e678a773a2fa9853be56dccf89d30d42077b09a6"
+  version "0.5.0" # x-release-please-version
   license "MIT"
 
   depends_on "python@3.13"
