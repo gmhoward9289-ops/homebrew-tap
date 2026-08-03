@@ -16,16 +16,28 @@
 # Homebrew distribution was invisible to any download tracking until this
 # changed.
 #
-# After tagging a release, refresh the checksum with:
-#   curl -sL https://github.com/gmhoward9289-ops/roost/releases/download/v0.5.0/roost_top-0.5.0.tar.gz | shasum -a 256   # x-release-please-version
+# The checksum below is refreshed automatically on release: the homebrew-tap
+# job in release.yml recomputes it for each tag and pushes the updated
+# formula to the tap repo, so no manual step is needed. Record of what that
+# job effectively runs (versionless on purpose -- see below):
+#   curl -sL https://github.com/gmhoward9289-ops/roost/releases/download/v<version>/roost_top-<version>.tar.gz | shasum -a 256
+#
+# The version appears in this file EXACTLY ONCE, on the marked `version` line,
+# and the url interpolates it. The old shape embedded it twice on the url line
+# and release-please rewrote only the first occurrence -- a release once
+# failed its version-consistency gate on exactly that: a url whose tag said
+# the new version while its filename still said the old one. One occurrence,
+# nothing to half-update, and the checker now rejects any other version
+# literal in this file. The tap job seds whole url/sha256/version lines with
+# computed literals, so the shipped formula never carries the interpolation.
 class Roost < Formula
   include Language::Python::Shebang
 
   desc "top for Claude Code: live sessions, context use, and their subagents"
   homepage "https://github.com/gmhoward9289-ops/roost"
-  url "https://github.com/gmhoward9289-ops/roost/releases/download/v0.5.0/roost_top-0.5.0.tar.gz" # x-release-please-version
-  sha256 "84ccb8f59d96dc7cc9123382e678a773a2fa9853be56dccf89d30d42077b09a6"
-  version "0.5.0" # x-release-please-version
+  version "0.6.1" # x-release-please-version
+  url "https://github.com/gmhoward9289-ops/roost/releases/download/v0.6.1/roost_top-0.6.1.tar.gz"
+  sha256 "0fb032f7b8374730b8d2181e592584b09809cceb6eaa890b90ccb3a2ad11a921"
   license "MIT"
 
   depends_on "python@3.13"
