@@ -16,15 +16,15 @@
 # first.
 #
 # After tagging a release, refresh the checksum with:
-#   curl -sL https://github.com/gmhoward9289-ops/leghorn/releases/download/v0.4.5/leghorn-0.4.5.tar.gz | shasum -a 256
+#   curl -sL https://github.com/gmhoward9289-ops/leghorn/releases/download/v0.4.6/leghorn-0.4.6.tar.gz | shasum -a 256
 class Leghorn < Formula
   include Language::Python::Shebang
 
   desc "Live dashboard for Claude Code sessions, git state, and GitHub CI"
   homepage "https://github.com/gmhoward9289-ops/leghorn"
-  url "https://github.com/gmhoward9289-ops/leghorn/releases/download/v0.4.5/leghorn-0.4.5.tar.gz"
-  sha256 "ad8149cdf779dfa6fe5c7161f7cd958746f73fc78ce5ffb44cb28fb6ffba61b8"
-  version "0.4.5"
+  url "https://github.com/gmhoward9289-ops/leghorn/releases/download/v0.4.6/leghorn-0.4.6.tar.gz"
+  sha256 "3dc98fa6f420f6aade978a4985f21a4d7233af3df37d3c04fb41fd5e11a7cf61"
+  version "0.4.6"
   license "MIT"
 
   depends_on "python@3.13"
