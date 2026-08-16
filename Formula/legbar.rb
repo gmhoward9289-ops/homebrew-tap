@@ -17,15 +17,15 @@
 # old shape afterwards.
 #
 # After tagging a release, refresh the checksum with:
-#   curl -sL https://github.com/gmhoward9289-ops/legbar/releases/download/v0.2.0/legbar-0.2.0.tar.gz | shasum -a 256
+#   curl -sL https://github.com/gmhoward9289-ops/legbar/releases/download/v0.2.1/legbar-0.2.1.tar.gz | shasum -a 256
 class Legbar < Formula
   include Language::Python::Shebang
 
   desc "One screen for the whole fleet: live agent sessions beside GitHub CI"
   homepage "https://github.com/gmhoward9289-ops/legbar"
-  url "https://github.com/gmhoward9289-ops/legbar/releases/download/v0.2.0/legbar-0.2.0.tar.gz"
-  sha256 "5cd4e5e75edb5998d8a941609f8630792a02818256b1af62980d466c5987b65f"
-  version "0.2.0"
+  url "https://github.com/gmhoward9289-ops/legbar/releases/download/v0.2.1/legbar-0.2.1.tar.gz"
+  sha256 "ed22a8b8da242d7386e84c6f28a071622351b3f77673eaa5c8f94bab0987879b"
+  version "0.2.1"
   license "MIT"
 
   depends_on "python@3.13"
