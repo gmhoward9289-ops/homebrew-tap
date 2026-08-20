@@ -54,7 +54,7 @@ class GitRoost < Formula
 
   desc "top for git: every repo and worktree on the box, most actionable first"
   homepage "https://github.com/gmhoward9289-ops/git-roost"
-  version "0.3.1" # x-release-please-version
+  version "0.4.0" # x-release-please-version
   url "https://github.com/gmhoward9289-ops/git-roost/releases/download/v#{version}/git_roost-#{version}.tar.gz"
   # STALE ON PURPOSE, AND KNOWN WRONG FOR THE URL ABOVE. This digest is the one
   # for the old archive/refs/tags/ tarball; no release carrying an sdist asset
@@ -65,7 +65,7 @@ class GitRoost < Formula
   # well-formed stand-in. The release workflow must recompute this against the
   # sdist asset on the next tag, before the tap-push job runs; the checker
   # reports the unverifiable state explicitly rather than passing it silently.
-  sha256 "f688d311c811ee5e598a62539d0104c319c10ca57638bdfe085760853ec25746"
+  sha256 "874dcc34c2d47a2061850f1b9992d152e0a17d88b970f74a4b42a058b7ccb796"
   license "Apache-2.0"
 
   depends_on "python@3.13"
@@ -89,6 +89,10 @@ class GitRoost < Formula
   def caveats
     <<~EOS
       git-roost reads local git state and needs `git` on PATH.
+
+      After install, run `git-roost`. It scans the usual checkout folders under
+      your home directory that exist (~/dev, ~/src, ~/GitHub, ...). Override with
+      --root DIR or GIT_ROOST_ROOT.
 
       It is read-only by construction: every git invocation is checked against an
       allowlist of plumbing that cannot mutate a tree, an index, or a ref.
