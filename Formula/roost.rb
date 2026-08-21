@@ -35,9 +35,9 @@ class Roost < Formula
 
   desc "top for Claude Code: live sessions, context use, and their subagents"
   homepage "https://github.com/gmhoward9289-ops/roost"
-  version "0.10.1" # x-release-please-version
-  url "https://github.com/gmhoward9289-ops/roost/releases/download/v0.10.1/roost_top-0.10.1.tar.gz"
-  sha256 "b7f8a2441a0b7e3ca502c8507fcf3f4bb15a92159490a348c36201f597434797"
+  version "0.11.0" # x-release-please-version
+  url "https://github.com/gmhoward9289-ops/roost/releases/download/v0.11.0/roost_top-0.11.0.tar.gz"
+  sha256 "5b5d3f215a239bca6efa27829dc5fd53903bd49f066447256b1eb2aa84eb20a6"
   license "Apache-2.0"
 
   depends_on "python@3.13"
@@ -49,6 +49,9 @@ class Roost < Formula
     # user activated for something else. Pin it to the formula's interpreter.
     rewrite_shebang detected_python_shebang(use_python_from_path: false), bin/"roost"
     man1.install "roost.1"
+    (bash_completion/"roost").write shell_output("#{bin}/roost --print-completion bash")
+    zsh_completion.install shell_output("#{bin}/roost --print-completion zsh")
+    (pkgshare/"roost-completions.ps1").write shell_output("#{bin}/roost --print-completion powershell")
   end
 
   test do
