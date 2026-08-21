@@ -54,7 +54,7 @@ class GitRoost < Formula
 
   desc "top for git: every repo and worktree on the box, most actionable first"
   homepage "https://github.com/gmhoward9289-ops/git-roost"
-  version "0.4.2" # x-release-please-version
+  version "0.5.0" # x-release-please-version
   url "https://github.com/gmhoward9289-ops/git-roost/releases/download/v#{version}/git_roost-#{version}.tar.gz"
   # STALE ON PURPOSE, AND KNOWN WRONG FOR THE URL ABOVE. This digest is the one
   # for the old archive/refs/tags/ tarball; no release carrying an sdist asset
@@ -65,7 +65,7 @@ class GitRoost < Formula
   # well-formed stand-in. The release workflow must recompute this against the
   # sdist asset on the next tag, before the tap-push job runs; the checker
   # reports the unverifiable state explicitly rather than passing it silently.
-  sha256 "54640c2f2d5b6880b8c38fb1484e8d69d2def7eca57c9b6e58921f3d4e63e58d"
+  sha256 "30a0dae42d242896a1e8824909d8fdac508c2ef6bb7d09104527a5e9d048c71f"
   license "Apache-2.0"
 
   depends_on "python@3.13"
@@ -90,9 +90,9 @@ class GitRoost < Formula
     <<~EOS
       git-roost reads local git state and needs `git` on PATH.
 
-      After install, run `git-roost`. It scans the usual checkout folders under
-      your home directory that exist (~/dev, ~/src, ~/GitHub, ...). Override with
-      --root DIR or GIT_ROOST_ROOT.
+      After install, run `git-roost`. It opens the TUI and scans the current
+      directory. Override with --root DIR or GIT_ROOST_ROOT. A missing root is
+      an error. Use --once for a one-shot table.
 
       It is read-only by construction: every git invocation is checked against an
       allowlist of plumbing that cannot mutate a tree, an index, or a ref.
