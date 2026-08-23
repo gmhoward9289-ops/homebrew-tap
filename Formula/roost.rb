@@ -35,9 +35,9 @@ class Roost < Formula
 
   desc "top for Claude Code: live sessions, context use, and their subagents"
   homepage "https://github.com/gmhoward9289-ops/roost"
-  version "0.12.0" # x-release-please-version
-  url "https://github.com/gmhoward9289-ops/roost/releases/download/v0.12.0/roost_top-0.12.0.tar.gz"
-  sha256 "4eeb7dee177e5bb8fea004201baa71ed528630f1c6173d3429933281167c4180"
+  version "0.13.0" # x-release-please-version
+  url "https://github.com/gmhoward9289-ops/roost/releases/download/v0.13.0/roost_top-0.13.0.tar.gz"
+  sha256 "b8601d2f4ef7b9f67591cddad6c8a0caa7120a4da0aabb4361215e297d380101"
   license "Apache-2.0"
 
   depends_on "python@3.13"
