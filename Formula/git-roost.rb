@@ -54,7 +54,7 @@ class GitRoost < Formula
 
   desc "top for git: every repo and worktree on the box, most actionable first"
   homepage "https://github.com/gmhoward9289-ops/git-roost"
-  version "0.5.1" # x-release-please-version
+  version "0.6.0" # x-release-please-version
   url "https://github.com/gmhoward9289-ops/git-roost/releases/download/v#{version}/git_roost-#{version}.tar.gz"
   # STALE ON PURPOSE, AND KNOWN WRONG FOR THE URL ABOVE. This digest is the one
   # for the old archive/refs/tags/ tarball; no release carrying an sdist asset
@@ -65,7 +65,7 @@ class GitRoost < Formula
   # well-formed stand-in. The release workflow must recompute this against the
   # sdist asset on the next tag, before the tap-push job runs; the checker
   # reports the unverifiable state explicitly rather than passing it silently.
-  sha256 "2f77fa4117d6f5e5a389a21a7418afbf8518064d2511ae1c139f655b0c10f63c"
+  sha256 "8cc7e891bf9c88b6149dd573458e569e7a57a3f72687c62d1f212e321b6bd986"
   license "Apache-2.0"
 
   depends_on "python@3.13"
